@@ -1,0 +1,5 @@
+{
+  "name": "SmashMaster - Badminton Scheduler",
+  "description": "A smart badminton match scheduler supporting singles and doubles with manual and random pairing capabilities.",
+  "requestFramePermissions": []
+}
