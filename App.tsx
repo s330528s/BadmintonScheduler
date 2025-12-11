@@ -449,16 +449,8 @@ export default function App() {
           </div>
           
           <div className="flex items-center gap-3">
-              {/* Navigation Tabs - Reordered */}
+              {/* Navigation Tabs - Reordered: Match First, Tournament Second */}
               <div className="flex bg-slate-100 p-1 rounded-lg">
-                <button
-                    onClick={() => setViewMode('tournament')}
-                    className={`flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'tournament' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                >
-                    <Trophy className="w-4 h-4 mr-2" />
-                    <span className="hidden xs:inline">錦標賽</span>
-                    <span className="xs:hidden">賽程</span>
-                </button>
                 <button
                     onClick={() => setViewMode('single_match')}
                     className={`flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'single_match' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
@@ -466,6 +458,14 @@ export default function App() {
                     <PlayCircle className="w-4 h-4 mr-2" />
                     <span className="hidden xs:inline">一般對戰</span>
                     <span className="xs:hidden">對戰</span>
+                </button>
+                <button
+                    onClick={() => setViewMode('tournament')}
+                    className={`flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'tournament' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                >
+                    <Trophy className="w-4 h-4 mr-2" />
+                    <span className="hidden xs:inline">錦標賽</span>
+                    <span className="xs:hidden">賽程</span>
                 </button>
               </div>
 
