@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Player, Match, MatchType, Tournament, Competitor } from './types';
 import { PlayerManager } from './components/PlayerManager';
@@ -204,7 +203,8 @@ const LoginModal: React.FC<LoginModalProps> = ({ onLogin, onClose }) => {
 };
 
 export default function App() {
-  const [viewMode, setViewMode] = useState<ViewMode>('single_match');
+  // Default to tournament view
+  const [viewMode, setViewMode] = useState<ViewMode>('tournament');
   
   // Auth State
   const [isAdmin, setIsAdmin] = useState(false);
@@ -441,7 +441,7 @@ export default function App() {
       {/* Header */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setViewMode('single_match')}>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setViewMode('tournament')}>
             <div className="bg-emerald-600 p-2 rounded-lg text-white">
                 <Activity className="w-5 h-5" />
             </div>
@@ -449,16 +449,8 @@ export default function App() {
           </div>
           
           <div className="flex items-center gap-3">
-              {/* Navigation Tabs */}
+              {/* Navigation Tabs - Reordered */}
               <div className="flex bg-slate-100 p-1 rounded-lg">
-                <button
-                    onClick={() => setViewMode('single_match')}
-                    className={`flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'single_match' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-                >
-                    <PlayCircle className="w-4 h-4 mr-2" />
-                    <span className="hidden xs:inline">一般對戰</span>
-                    <span className="xs:hidden">對戰</span>
-                </button>
                 <button
                     onClick={() => setViewMode('tournament')}
                     className={`flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'tournament' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
@@ -466,6 +458,14 @@ export default function App() {
                     <Trophy className="w-4 h-4 mr-2" />
                     <span className="hidden xs:inline">錦標賽</span>
                     <span className="xs:hidden">賽程</span>
+                </button>
+                <button
+                    onClick={() => setViewMode('single_match')}
+                    className={`flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'single_match' ? 'bg-white text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                >
+                    <PlayCircle className="w-4 h-4 mr-2" />
+                    <span className="hidden xs:inline">一般對戰</span>
+                    <span className="xs:hidden">對戰</span>
                 </button>
               </div>
 
