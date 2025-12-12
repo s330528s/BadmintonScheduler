@@ -1,4 +1,5 @@
 # 檔案路徑: .github/workflows/deploy.yml
+# 注意: 此檔案必須位於 .github/workflows/ 目錄下才能運作 (注意開頭的點)
 
 name: Deploy static content to Pages
 
